@@ -4,7 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./child-app/child-app.module').then(m => m.ChildAppModule),
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
+    data: { preload: true },
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
+    data: { preload: true },
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     data: { preload: true },
   },
 ];
